@@ -9,7 +9,7 @@ def plot_data(wavefront_array):
     x = np.linspace(-2,2,wavefront_array.shape[0])
     y = np.linspace(-2,2,wavefront_array.shape[0])
     X, Y = np.meshgrid(x,y)
-    fig = plt.figure(dpi=300)
+    fig = plt.figure(dpi=100)
     ax = fig.add_subplot(111, projection='3d')
 
     ax.plot_surface(X, Y, -wavefront_array, cmap='inferno')
