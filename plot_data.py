@@ -4,16 +4,15 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
 DIRECTORY = "/Act15Test/50/"
-THRESHOLD = -0.9
 
 def plot_data(wavefront_array):
     x = np.linspace(-2,2,wavefront_array.shape[0])
     y = np.linspace(-2,2,wavefront_array.shape[0])
     X, Y = np.meshgrid(x,y)
-    fig = plt.figure(dpi=100)
+    fig = plt.figure(dpi=300)
     ax = fig.add_subplot(111, projection='3d')
 
-    ax.plot_surface(X, Y, wavefront_array, cmap='inferno')
+    ax.plot_surface(X, Y, -wavefront_array, cmap='inferno')
     plt.show()
 
 if __name__ == "__main__":

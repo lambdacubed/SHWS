@@ -21,7 +21,7 @@ if __name__ == "__main__":
     fig = plt.figure(dpi = 300)
 
     plt.grid()
-    plt.errorbar(x,y,yerr=error_bars)
+    plt.errorbar(x,y,yerr=error_bars, fmt='.')
     plt.xlabel('Actuator 15 voltage with others at 40V')
     plt.ylabel('Actuator stroke (microns)')
     plt.title('Actuator 15 stroke')
