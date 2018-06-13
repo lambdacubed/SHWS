@@ -1,0 +1,6 @@
+# Exclude python 3 bytecode
+*.pyc
+__pycache__/
+
+# Exclude visual studio code directory 
+*Act15Test/.vscode/
