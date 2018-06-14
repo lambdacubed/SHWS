@@ -29,8 +29,14 @@ if __name__ == "__main__":
     ax.errorbar(x_3p5, y_3p5, yerr=y_err_3p5, fmt='.', label="Lens-to-CMOS = 3.5mm")
     ax.errorbar(x_4p1, y_4p1, yerr=y_err_4p1, fmt='.', label="Lens-to-CMOS = 4.1mm")
     ax.plot(x,y, label="Northrop Grumman")
+    ax.plot(x,2*y, label="2x Northrop Grumman")
 
     ax.legend()
+
+    ax.set_title('Actuator 15 stroke')
+    ax.set_ylabel('Actuator movement (microns)')
+    ax.set_xlabel('Actuator 15 voltage (everything else at 40V)')
+
     plt.savefig('Actuator 15 final.png', bbox_inches='tight')
 
-    # plt.show()
+    plt.show()
