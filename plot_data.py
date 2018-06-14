@@ -3,7 +3,7 @@ import os
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 
-DIRECTORY = "/Act15Test/50/"
+DIRECTORY = "/Act15Test/12p4/not_same/ccd-to-mask_4p1/60/"
 
 def plot_data(wavefront_array):
     x = np.linspace(-2,2,wavefront_array.shape[0])

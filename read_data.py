@@ -2,7 +2,7 @@ import numpy as np
 import csv
 import os
 
-DIRECTORY = "/Act15Test/60/"
+DIRECTORY = "/Act15Test/12p4/not_same/ccd-to-mask_4p1/60/"
 
 #def read_wavefront_grid(data_file):
 #    wavefront_array = np.empty(0,'float')

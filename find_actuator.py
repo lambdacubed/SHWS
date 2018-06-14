@@ -1,9 +1,9 @@
 import numpy as np
 import os
 
-DIRECTORY = "/Act15Test/50/"
+DIRECTORY = "/Act15Test/12p4/not_same/ccd-to-mask_4p1/50/"
 
-THRESHOLD = -0.95
+THRESHOLD = -.8
 
 if __name__ == "__main__":
     directory_path = os.path.dirname(os.path.abspath(__file__)) # get the current directory's path
