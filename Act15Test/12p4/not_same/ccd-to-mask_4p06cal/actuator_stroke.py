@@ -40,4 +40,4 @@ if __name__ == "__main__":
     plt.title('Actuator 15 stroke')
     plt.savefig('Actuator 15.png', bbox_inches='tight')
     plt.show()
-    np.savez('4p1_vectors.npz', x=x, y=-y, y_err=y_err)
+    np.savez('4p06_vectors.npz', x=x, y=-y, y_err=y_err)
