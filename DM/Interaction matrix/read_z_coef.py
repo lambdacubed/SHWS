@@ -1,36 +1,15 @@
-
-import os
 import numpy as np
+import csv
+import os
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 
-DIRECTORY = ""
-
-ACTUATORS = ['/0/', '/1/']
-
-VOLTAGES = ['4/', '8/']
-
-FILES = ["test", "test_w_reference"]
-
-def read_z_coef(filename):
-    directory_path = os.path.dirname(os.path.abspath(__file__)) # get the current directory's path
-    wavefront_array = np.loadtxt(directory_path + "/" + filename + '.txt')
-    if wavefront_array.shape[0] == 200:
-        return wavefront_array[:,0]
-    else:
-        print("There aren't 200 coefficients")
-
+FILES = ["1", "2", "3"]
 
 if __name__ == "__main__":
-    # zc_list = [read_z_coef("test_w_reference")]
-    # zc_list.append(read_z_coef("test"))
-    # zc_array = np.array(zc_list)
-    # print(zc_array.mean(axis=0))
-    # print(zc_array.std(axis=0,ddof=1))
-
-
-
-    x_voltages = np.array([4, 8])
+    ACTUATORS = ['/' + str(x) + '/' for x in range(37)]
+    VOLTAGES = [str((5*x)+50) + '/' for x in range(9)]
+    x_voltages = np.array([5*x+50 for x in range(9)])
     
     directory_path = os.path.dirname(os.path.abspath(__file__)) # get the current directory's path
 
@@ -48,8 +27,8 @@ if __name__ == "__main__":
                     zc_list.append(zernike_polynomial_info[:,0])
                 else:
                     print("There aren't 200 coefficients in " + actuator + voltage + zc_file)
-
-            zc_array = int(voltage[0])**(int(actuator[1])) * np.array(zc_list)
+#####################################################################################################                        
+            zc_array = np.array(zc_list)
             zc_array_mean = zc_array.mean(axis=0)
             zc_array_stddev = zc_array.std(axis=0, ddof=1)
 
@@ -80,7 +59,7 @@ if __name__ == "__main__":
     np.savez(directory_path + '/interaction_matrix.npz', interaction_matrix=interaction_matrix)
     np.savez(directory_path + '/error_info.npz', r_squared = r_squared, std_err=std_err)
 
-    fig = plt.figure(dpi=400)
+    fig = plt.figure(dpi=500)
 
     ax1 = fig.add_subplot(131)
     plot_1 = ax1.imshow(interaction_matrix)

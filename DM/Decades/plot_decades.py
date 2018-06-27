@@ -25,29 +25,30 @@ if __name__ == "__main__":
             zc_array_list.append(zc_array)
 
 
-        wave_array_list = np.array(wave_array_list)
-        wavefront_values = wave_array_list.mean()
+        wave_array = np.array(wave_array_list)
+        wavefront_values = wave_array.mean(axis=0)
 
         x = np.linspace(-2,2,wavefront_array.shape[0])
         y = np.linspace(-2,2,wavefront_array.shape[0])
         X, Y = np.meshgrid(x,y)
 
-        y = np.array(wavefront_values)
-
-        fig = plt.figure(dpi=100)
+        fig = plt.figure(dpi=300)
         ax = fig.add_subplot(111, projection='3d')
 
         ax.plot_surface(X, Y, wavefront_values, cmap='inferno')
         ax.savefig('Decade wavefront ' + directory + '.png', bbox_inches='tight')
-        fig = plt.figure(dpi = 300)
+
 
 
 
         zc_array_list = np.array(zc_array_list)
-        zc_values = zc_array_list.mean()
-        zc_error = zc_array_list.std()
+        zc_values = zc_array_list.mean(axis=0)
+        zc_error = zc_array_list.std(axis=0, ddof=1)
 
         x = np.array(np.range(zc_values.size)) + 1
+
+        fig = plt.figure(dpi = 300)
+
         ax = fig.add_subplot(111)
 
         ax.grid()

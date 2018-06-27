@@ -1,0 +1,3 @@
+save zc as 1zc.txt
+save wavefront as 1.txt
+take a photo of x and y boundaries
