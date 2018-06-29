@@ -19,14 +19,14 @@ if __name__ == "__main__":
         zc_array_list = np.array(z_coef_list)
         zc_noise = zc_array_list.std(axis=0,ddof=1)
 
-        fig = plt.figure(dpi=100)
+        fig = plt.figure(dpi=300)
         ax = fig.add_subplot(111)
 
         ax.grid()
-        ax.plt(zc_noise)
+        plt.plot(zc_noise)
 
         ax.set_title('Zernike polynomial noise')
-        ax.set_ylabel('Standard deviation (waves?)')
+        ax.set_ylabel('Standard deviation')
         ax.set_xlabel('Zernike polynomial number')
 
         plt.savefig('Z polynomial noise.png', bbox_inches='tight')
