@@ -8,7 +8,8 @@ def voltage_to_zernike(filename):
 
     influence_matrix = np.load(directory_path + '/interaction_matrix.npz')
 
-    voltages = file_f.read_adf(filename)
+    reference_voltages = file_f.read_adf(filename)
+    opt_voltages = file_f.read_adf(filename)
 
     zernike_coefficients = np.matmul(influence_matrix, voltages)
 
